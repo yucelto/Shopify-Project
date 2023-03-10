@@ -12,6 +12,8 @@ const fetchApi = async ({ query }: FetchParams) => {
     body: JSON.stringify({ query }),
   });
   const { data, errors } = await res.json();
+  //?? is checking first left hand expression is null or undefined-> if it is go with right expression
+  // || is checking if left hand expression is null, undefined, "",0,false
   if (errors) {
     throw new Error(errors[0].message ?? errors.message);
   }
